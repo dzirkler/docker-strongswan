@@ -2,13 +2,13 @@
 
 C=US
 O=StrongSwan
-CA_CN=strongswan.org
-SERVER_CN=moon.strongswan.org
-SERVER_SAN=moon.strongswan.org
-CLIENT_CN="carol@strongswan.org"
+CA_CN=zirkler.com
+SERVER_CN=webproxy.home.zirkler.com
+SERVER_SAN=webproxy.home.zirkler.com
+CLIENT_CN="zirkler@webproxy.home.zirkler.com"
 
 CONFIG_DIR=$PWD/config/ipsec.d
-IPSEC="docker run -it --rm=true -v $CONFIG_DIR:/etc/ipsec.d strongswan"
+IPSEC="docker run -it --rm=true -v $CONFIG_DIR:/etc/ipsec.d dzirkler/strongswan:latest"
 
 mkdir -p $CONFIG_DIR/aacerts \
          $CONFIG_DIR/acerts \
