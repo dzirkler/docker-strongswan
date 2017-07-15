@@ -1,0 +1,18 @@
+version: '2'
+services:
+  strongswan:
+    cap_add:
+    - NET_ADMIN
+    image: r.cfcr.io/dzirkler/strongswan:master
+    network_mode: host
+    volumes:
+    - /mnt/storage/config/strongswan/strongswan.conf:/etc/strongswan.conf
+    - /mnt/storage/config/strongswan/ipsec.conf:/etc/ipsec.conf
+    - /mnt/storage/config/strongswan/ipsec.secrets:/etc/ipsec.secrets
+    - /mnt/storage/config/strongswan/ipsec.d:/etc/ipsec.d
+    ports:
+    - 5000:500/tcp
+    - 4500:4500/tcp
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.hostname_override: container_name
