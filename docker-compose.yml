@@ -1,0 +1,14 @@
+version: '2'
+services:
+  strongswan:
+    cap_add:
+    - NET_ADMIN
+    image: r.cfcr.io/dzirkler/strongswan:master
+    volumes:
+    - /Users/dzirkler/Projects/dzirkler/docker-strongswan/config/strongswan.conf:/etc/strongswan.conf
+    - /Users/dzirkler/Projects/dzirkler/docker-strongswan/config/ipsec.conf:/etc/ipsec.conf
+    - /Users/dzirkler/Projects/dzirkler/docker-strongswan/config/ipsec.secrets:/etc/ipsec.secrets
+    - /Users/dzirkler/Projects/dzirkler/docker-strongswan/config/ipsec.d:/etc/ipsec.d
+    ports:
+    - 5000:500/udp
+    - 5001:4500/udp
