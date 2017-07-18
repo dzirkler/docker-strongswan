@@ -1,7 +1,7 @@
 #!/bin/sh
 
 C=US
-O=Zirkler Family
+O=Zirkler
 CA_CN=zirkler.com
 SERVER_CN=strongswan.home.zirkler.com
 SERVER_SAN=strongswan.home.zirkler.com
