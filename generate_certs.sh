@@ -1,14 +1,14 @@
 #!/bin/sh
 
 C=US
-O=StrongSwan
+O=Zirkler Family
 CA_CN=zirkler.com
-SERVER_CN=webproxy.home.zirkler.com
-SERVER_SAN=webproxy.home.zirkler.com
-CLIENT_CN="zirkler@webproxy.home.zirkler.com"
+SERVER_CN=strongswan.home.zirkler.com
+SERVER_SAN=strongswan.home.zirkler.com
+CLIENT_CN="zirkler@strongswan.home.zirkler.com"
 
 CONFIG_DIR=$PWD/config/ipsec.d
-IPSEC="docker run -it --rm=true -v $CONFIG_DIR:/etc/ipsec.d dzirkler/strongswan:latest"
+IPSEC="docker run -it --rm=true -v $CONFIG_DIR:/etc/ipsec.d r.cfcr.io/dzirkler/strongswan:odroid"
 
 mkdir -p $CONFIG_DIR/aacerts \
          $CONFIG_DIR/acerts \
