@@ -1,0 +1,21 @@
+#
+# StrongSwan VPN + Alpine Linux
+#
+
+FROM arm32v6/alpine:3.6
+
+ENV STRONGSWAN_RELEASE https://download.strongswan.org/strongswan.tar.bz2
+
+RUN apk --update --no-cache add \
+            ip6tables \
+            iproute2 \
+            iptables-dev \
+            openssl \
+            strongswan && \
+    rm -rf /var/cache/apk/*
+
+EXPOSE 500/udp \
+       4500/udp
+
+ENTRYPOINT ["/usr/sbin/ipsec"]
+CMD ["start", "--nofork", "--debug"]
